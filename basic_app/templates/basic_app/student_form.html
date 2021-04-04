@@ -1,0 +1,17 @@
+{% extends 'basic_app/basic_app_base.html' %}
+{% load crispy_forms_filters %}
+{% block body_block %}
+<h1>
+    {% if not form.instance.pk %}
+    Create Student
+    {% else %}
+    Update Student
+    {% endif %}
+</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+
+{% endblock %}

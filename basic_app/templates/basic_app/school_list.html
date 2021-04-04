@@ -1,0 +1,14 @@
+{% extends 'basic_app/basic_app_base.html' %}
+{% block body_block %}
+
+<h1>Welcome to a list of all the schools!</h1>
+    <ol>
+        {% for school in schools %}
+        <h2><li><a href="{{ school.id }}">{{ school.name }}<a></li></h2>
+        {% endfor %}
+    </ol>
+    <a style="margin-top: 20px;" class="btn btn-success" href="{% url 'basic_app:create_school' %}">Create new School</a>
+    <a style="margin-top: 20px;" class="btn btn-primary" href="{% url 'basic_app:create_student' %}">Create new Student</a>
+    {% comment %} <a style="margin-top: 20px;" class="btn btn-danger" href="{% url 'basic_app:delete_student' %}">Delete Student</a> {% endcomment %}
+
+{% endblock %}
